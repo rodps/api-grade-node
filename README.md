@@ -25,7 +25,7 @@ API para cadastro de produtos com grade utilizando Node.Js, Express e TypeScript
 
 ```docker build -t api-grade .```
 
-```docker run -it -e DATABASE_URL="file:./nome_database_sqlite.dev" api-grade```
+```docker run -it -e DATABASE_URL="file:./nome_database_sqlite.db" api-grade```
 
 - Via npm:
 
