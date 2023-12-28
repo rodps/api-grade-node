@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Produto {
+  id Int @id @default(autoincrement())
+  nome String
+  variacoes Variacao[]
+  grade Grade[]
+}
+
+model Variacao {
+  id Int @id @default(autoincrement())
+  nome String
+  valor String
+  produtoId Int
+  produto Produto @relation(fields: [produtoId], references: [id], onDelete: Cascade)
+}
+
+model Grade {
+  id Int @id @default(autoincrement())
+  nome String
+  estoque Int
+  valor Float
+  produtoId Int
+  produto Produto @relation(fields: [produtoId], references: [id], onDelete: Cascade)
+}
