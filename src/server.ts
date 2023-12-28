@@ -13,7 +13,7 @@ app.use(produtoRouter)
 app.use(errorHandler)
 
 const server = app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`App listening on port ${port}`)
 })
 
 export default server
