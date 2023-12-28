@@ -30,9 +30,11 @@
   "scripts": {
     "build": "rm -rf dist && tsc",
     "start": "node dist/server.js",
-    "start:prod": "prisma migrate deploy && npm start",
+    "migrate": "prisma migrate deploy",
     "dev": "nodemon src/server.ts",
-    "test": "jest"
+    "test": "jest",
+    "start:prod": "npm run migrate && npm start",
+    "test:prod": "npm run migrate && jest"
   },
   "author": "",
   "license": "ISC",
