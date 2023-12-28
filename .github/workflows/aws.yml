@@ -24,7 +24,7 @@
 #    See the documentation for each action used below for the recommended IAM policies for this IAM user,
 #    and best practices on handling the access key credentials.
 
-name: Deploy to Amazon ECS
+name: Test and Deploy to Amazon ECS
 
 on:
   push:
@@ -42,7 +42,24 @@ permissions:
   contents: read
 
 jobs:
+  test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js 21.5.0
+      uses: actions/setup-node@v3
+      with:
+        node-version: 21.5.0
+        cache: 'npm'
+    - run: npm install
+    - run: npm run build
+    - run: npm test
+      env:
+        DATABASE_URL: ${{secrets.DATABASE_TEST_URL}}
   deploy:
+    needs: test
     name: Deploy
     runs-on: ubuntu-latest
     environment: production
