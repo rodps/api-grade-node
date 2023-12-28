@@ -1,4 +1,3 @@
-// import { PrismaClient } from "@prisma/client"
 import express from "express"
 import { produtoRouter } from "./produtos/produto-router"
 import { errorHandler } from "./middlewares/error-handler"
