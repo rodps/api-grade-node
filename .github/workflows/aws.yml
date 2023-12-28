@@ -56,6 +56,8 @@ jobs:
     - run: npm install
     - run: npm run build
     - run: npm run migrate
+      env:
+        DATABASE_URL: ${{secrets.DATABASE_TEST_URL}}
     - run: npm test
       env:
         DATABASE_URL: ${{secrets.DATABASE_TEST_URL}}
