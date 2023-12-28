@@ -3,15 +3,17 @@ import { produtoRouter } from "./produtos/produto-router"
 import { errorHandler } from "./middlewares/error-handler"
 import cors from "cors"
 
-const server = express()
+const app = express()
 const port = 3000
 
-server.use(express.json())
-server.use(cors())
+app.use(express.json())
+app.use(cors())
 
-server.use(produtoRouter)
-server.use(errorHandler)
+app.use(produtoRouter)
+app.use(errorHandler)
 
-server.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+
+export default server
