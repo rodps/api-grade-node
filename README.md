@@ -1,6 +1,6 @@
 # API Para cadastro de produtos com grade
 
-API para cadastro de produtos com grade utilizando Node.Js, Express e TypeScript. Para o banco de dados foi utilizado o Prisma ORM. Para o deploy foi utilizado o serviço AWS ECS e Github Actions para Continuous Deployment.
+API para cadastro de produtos com grade utilizando Node.Js, Express e TypeScript. Para o banco de dados foi utilizado o Prisma ORM. Para o deploy foi utilizado o serviço AWS ECS e Github Actions para CI/CD.
 
 ###  Tecnologias:
 - Node.Js
@@ -10,6 +10,7 @@ API para cadastro de produtos com grade utilizando Node.Js, Express e TypeScript
 - Docker
 - AWS ECS
 - Github Actions
+- Supertest e Jest
 
 ### Endpoints disponíveis:
 
