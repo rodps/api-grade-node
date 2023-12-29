@@ -43,7 +43,7 @@ export class ProdutoRepository {
     produtos: DetalhesProdutoDTO[]
     totalPages: number
   }> {
-    const limit = 2
+    const limit = 10
     const produtos = await prisma.produto.findMany({
       include: {
         grade: true,
@@ -80,7 +80,11 @@ export class ProdutoRepository {
         nome: produto.nome,
         grade: {
           deleteMany: {},
-          create: produto.grade
+          create: produto.grade.map((g) => ({
+            estoque: g.estoque,
+            nome: g.nome,
+            valor: g.valor
+          }))
         },
         variacoes: {
           deleteMany: {},

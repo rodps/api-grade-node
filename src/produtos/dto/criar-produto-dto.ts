@@ -1,6 +1,6 @@
 interface VariacaoDTO {
   nome: string
-  valor: string
+  valores: string
 }
 
 interface GradeDTO {

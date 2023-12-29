@@ -9,7 +9,7 @@ export const validarProduto = (req: Request) => {
       .items(
         Joi.object({
           nome: Joi.string(),
-          valor: Joi.string()
+          valores: Joi.string()
         })
       )
       .min(1),
@@ -22,7 +22,7 @@ export const validarProduto = (req: Request) => {
         })
       )
       .min(1)
-  }).options({ presence: "required" })
+  }).options({ presence: "required", allowUnknown: true })
   const { error } = schema.validate(req.body)
   if (error) {
     throw new ValidationError(error.message)
