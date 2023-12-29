@@ -37,11 +37,11 @@ describe("Produtos Integration Test", () => {
         variacoes: [
           {
             nome: "teste",
-            valor: "teste"
+            valores: "teste"
           },
           {
             nome: "teste2",
-            valor: "teste"
+            valores: "teste"
           }
         ],
         grade: [
@@ -92,7 +92,7 @@ const criarProduto = async (): Promise<Produto> => {
         create: [
           {
             nome: "teste",
-            valor: "teste"
+            valores: "teste"
           }
         ]
       },
